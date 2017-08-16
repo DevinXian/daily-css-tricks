@@ -6,6 +6,7 @@
 ### 高度与宽度成比例效果
 
 1. 需求：元素在跟随父元素大小变化时候保持固定宽高比；假设高度 100px，宽度 200px
+2. 传统 height:auto 这种方式问题：图片加载出来之前布局被影响；假如有列表，图片容不得1px的差异
 3. 父元素样式：
 
 ```css
@@ -21,11 +22,15 @@
   visibility: hidden;
   clear: both;
 }
-.dist{
-  width:100%;
-  float: left;
+.inner{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;//比例保证了width
 }
 ```
 { padding-bottom: 子元素宽/子元素高 * 100%;height:0;/*overflow:hidden;*/}, &::after{display:block;content:'';height:0;clear:both;}
 4. 子元素样式：{ width:100%;float:left; }
 4. 更深层次应用还可根据元素大小变化区间设置宽高比(斜率为padding-bottom)，达到某些适应效果
+5. 父容器使用 `overflow:hidden` 在包含图片、iframe、video 等没有问题；如果是文本，并且内容多出高度，则 overflow 会截取文本内容 
+6. **参考资料**[aspect-ratio-boxes](https://www.w3cplus.com/css/aspect-ratio-boxes.html)

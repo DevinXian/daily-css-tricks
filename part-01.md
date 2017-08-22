@@ -34,3 +34,4 @@
 4. 更深层次应用还可根据元素大小变化区间设置宽高比(斜率为padding-bottom)，达到某些适应效果
 5. 父容器使用 `overflow:hidden` 在包含图片、iframe、video 等没有问题；如果是文本，并且内容多出高度，则 overflow 会截取文本内容 
 6. **参考资料**[aspect-ratio-boxes](https://www.w3cplus.com/css/aspect-ratio-boxes.html)
+7. iOS 设备设置了 meta\[viewport] 的时候，html 及 body 的 overflow hidden 会被忽略，故宜再包一层的div

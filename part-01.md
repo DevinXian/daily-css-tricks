@@ -35,3 +35,4 @@
 5. 父容器使用 `overflow:hidden` 在包含图片、iframe、video 等没有问题；如果是文本，并且内容多出高度，则 overflow 会截取文本内容 
 6. **参考资料**[aspect-ratio-boxes](https://www.w3cplus.com/css/aspect-ratio-boxes.html)
 7. iOS 设备设置了 meta\[viewport] 的时候，html 及 body 的 overflow hidden 会被忽略，故宜再包一层的div
+8. line-height 属性默认为1.2左右，因 font-family 而异，比如font-size:28px, 单行 content-box 高度约为 33px

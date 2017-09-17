@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <style>
+    .button {
+      position: relative;
+      background-color: #4caf50;
+      border: none;
+      font-size: 28px;
+      color: #fff;
+      padding: 20px;
+      width: 200px;
+      text-align: center;
+      transition-duration: .4s;
+      text-decoration: none;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .button:after {
+      content: '';
+      display: block;
+      background-color: #90ee90;
+      position: absolute;
+      padding-top: 300%;
+      padding-left: 350px;
+      margin-left: -20px !important; /*absolute默认从 button padding-box 算起，所以移除左内边距 20px 差异*/
+      margin-top: -120px; /* 挡住button*/
+      opacity: 0;
+      transition: all .8s;
+    }
+
+    .button:active:after {
+      padding: 0;
+      margin: 0;
+      opacity: 1;
+      transition: 0s;
+    }
+
+  </style>
+</head>
+<body>
+<h3>按钮动画 - 波纹效果</h3>
+
+<button class="button">Click Me</button>
+</body>
+</html>

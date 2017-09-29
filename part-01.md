@@ -37,3 +37,4 @@
 7. iOS 设备设置了 meta\[viewport] 的时候，html 及 body 的 overflow hidden 会被忽略，故宜再包一层的div
 8. line-height 属性默认为1.2左右，因 font-family 而异，比如font-size:28px, 单行 content-box 高度约为 33px
 9. 多栏等高：padding-bottom: 5000px(much bigger) 结合 margin-bottom: 5000px(容器搭配 overflow:hidden 防止padding背景色污染其他页面内容)
+10. 多栏等高：人造栏（实际是容器背景结合元素自身背景覆盖）可以实现多栏等高效果（模拟）

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>三栏布局之中栏宽度自适应</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    hr {
+      margin: 50px 0 20px;
+    }
+
+    h3 {
+      margin-bottom: 20px;
+    }
+
+    .container {
+      height: 200px;
+      width: 1000px;
+      margin: auto;
+    }
+
+    .container:before {
+      display: block;
+      content: '';
+      height: 0;
+      clear: both;
+    }
+
+    div {
+      height: 200px;
+    }
+
+    .l {
+      width: 150px;
+      background-color: red;
+    }
+
+    .m {
+      background-color: green;
+    }
+
+    .r {
+      width: 200px;
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+<h3>第一种，中栏左右margin等同于边栏宽度，边栏绝对定位即可（宽度很小时候，很可能产生重叠）--此处不详述</h3>
+<hr/>
+<h3>第二种（参见 《CSS设计指南》）左栏和中栏包裹在一起成为整体，并且内部由中栏设置右边距为第三栏宽度；通过A设置负右边距，让出右栏浮动宽度（等于右栏宽度）</h3>
+
+<!-- 开始 -->
+<div class="container">
+  <div class="two" style="width:100%;float:left; margin-right: -200px;">
+    <div class="l" style="float: left;"></div>
+    <div class="m" style="margin-right:200px;"></div>
+  </div>
+  <div class="r" style="float:left;"></div>
+</div>
+<!-- 结束 -->
+
+<hr/>
+<h3>第三种（类似第二种）中栏左右margin等同于边栏宽度，左边栏 margin-left:-100% 飘到最左边；右边栏： margin-left:-200px（等于右栏宽度）</h3>
+<!-- 开始 -->
+<div class="container">
+  <div class="wrap" style="float:left;width:100%;">
+    <div class="m" style="margin:0 200px 0 150px;"></div>
+  </div>
+  <!-- 如果 .l 放在中栏上面，会导致 margin-left:-100% 跑到了屏幕左边界 -->
+  <div class="l" style="float:left;margin-left:-100%;"></div>
+  <div class="r" style="float:left;margin-left: -200px;"></div>
+</div>
+<!-- 结束 -->
+
+<hr/>
+<h3>第四个种，最外面 display:table；里面三栏 display：table-cell（有些书上说外面的 table 和 row均可省略，经测试，不正确）</h3>
+<div class="container" style="display:table">
+  <div style="display: table-row">
+    <div style="display: table-cell;" class="l"></div>
+    <div style="display: table-cell;" class="m"></div>
+    <div style="display: table-cell;" class="r"></div>
+  </div>
+</div>
+</body>
+</html>
